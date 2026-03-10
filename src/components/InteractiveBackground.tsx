@@ -48,15 +48,14 @@ export function InteractiveBackground() {
 
   const isDark = resolvedTheme === "dark";
 
-  // Base background classes indicating the Canva-style gradient
-  // Dark mode: Deep purple to dark cyan
-  // Light mode: Vibrant purple to bright cyan (lighter pastel variants to keep text readable)
+  // Dark: navy deep #0D1117 base. Light: clean white
+  // Gradient overlay is more transparent in light mode so dark text remains legible
   const bgClass = isDark 
-    ? "bg-gradient-to-b from-[#4b149b] via-[#2d4cb6] to-[#0d79b6]" 
-    : "bg-gradient-to-b from-[#8a3ffc] via-[#4589ff] to-[#08bdba] opacity-20"; // Opacity lowered in light mode so dark text pops
+    ? "bg-gradient-to-b from-[#221C35] via-[#1a2744] to-[#0D1117]" 
+    : "bg-gradient-to-b from-[#ede9fe] via-[#e0e7ff] to-[#f0f9ff] opacity-70";
 
   return (
-    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? "bg-[#11052C]" : "bg-white"}`}>
+    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? "bg-[#0D1117]" : "bg-white"}`}>
       
       {/* Main Base Gradient layer that scales up slightly to allow panning */}
       <div 
@@ -67,25 +66,23 @@ export function InteractiveBackground() {
         }}
       ></div>
 
-      {/* Abstract interactive blobs mapping to the Canva vibe */}
+      {/* Glow blobs — move with mouse */}
       <div 
         className="absolute inset-0 transition-transform duration-100 ease-out"
-        style={{
-          transform: `translate(${smoothedMouse.x * 60}px, ${smoothedMouse.y * 60}px)`
-        }}
+        style={{ transform: `translate(${smoothedMouse.x * 60}px, ${smoothedMouse.y * 60}px)` }}
       >
-        {/* Top left bright purple glow */}
-        <div className={`absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full blur-[100px] mix-blend-screen transition-all duration-700 ${
+        {/* Top-left: deep indigo/purple */}
+        <div className={`absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full blur-[120px] mix-blend-screen transition-all duration-700 ${
           isDark 
-            ? 'bg-[radial-gradient(circle,rgba(168,85,247,0.4)_0%,rgba(0,0,0,0)_70%)]' 
-            : 'bg-[radial-gradient(circle,rgba(216,180,254,0.6)_0%,rgba(255,255,255,0)_70%)]'
+            ? 'bg-[radial-gradient(circle,rgba(109,40,217,0.55)_0%,rgba(0,0,0,0)_70%)]' 
+            : 'bg-[radial-gradient(circle,rgba(196,181,253,0.45)_0%,rgba(255,255,255,0)_70%)]'
         }`}></div>
         
-        {/* Bottom right cyan/teal glow */}
-        <div className={`absolute bottom-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[100px] mix-blend-screen transition-all duration-700 ${
+        {/* Bottom-right: dark teal/cyan */}
+        <div className={`absolute bottom-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[120px] mix-blend-screen transition-all duration-700 ${
           isDark 
-            ? 'bg-[radial-gradient(circle,rgba(6,182,212,0.4)_0%,rgba(0,0,0,0)_70%)]' 
-            : 'bg-[radial-gradient(circle,rgba(103,232,249,0.5)_0%,rgba(255,255,255,0)_70%)]'
+            ? 'bg-[radial-gradient(circle,rgba(6,182,212,0.35)_0%,rgba(0,0,0,0)_70%)]' 
+            : 'bg-[radial-gradient(circle,rgba(125,211,252,0.4)_0%,rgba(255,255,255,0)_70%)]'
         }`}></div>
       </div>
       
