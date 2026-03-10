@@ -18,10 +18,11 @@ export function Hero() {
 
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-950 dark:text-white">
-          Transformo datos en{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-indigo-400 dark:to-cyan-400">decisiones</span>{" "}
-          y procesos en{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600 dark:from-green-400 dark:to-emerald-300">software</span>
+          Datos que{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-indigo-400 dark:to-cyan-400">deciden</span>
+          .{" "}Procesos que{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600 dark:from-green-400 dark:to-emerald-300">escalan</span>
+          .
         </h1>
 
         {/* Subtitle */}
