@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useTheme } from "next-themes";
 
 export function InteractiveBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [smoothedMouse, setSmoothedMouse] = useState({ x: 0, y: 0 });
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const requestRef = useRef<number>(0);
 
   useEffect(() => {
     setMounted(true);
@@ -14,8 +16,9 @@ export function InteractiveBackground() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) - 0.5;
-      const y = (e.clientY / window.innerHeight) - 0.5;
+      // Calculate normalized mouse position (-1 to 1) for more pronounced effect
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
       setMousePosition({ x, y });
     };
 
@@ -23,53 +26,82 @@ export function InteractiveBackground() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  // Smooth the mouse movement using requestAnimationFrame
+  useEffect(() => {
+    const smoothFactor = 0.05; // Adjust for more/less smoothing
+    
+    const animate = () => {
+      setSmoothedMouse(prev => ({
+        x: prev.x + (mousePosition.x - prev.x) * smoothFactor,
+        y: prev.y + (mousePosition.y - prev.y) * smoothFactor
+      }));
+      requestRef.current = requestAnimationFrame(animate);
+    };
+
+    requestRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+    };
+  }, [mousePosition]);
+
   if (!mounted) return null;
 
   const isDark = resolvedTheme === "dark";
 
+  // Base background classes indicating the Canva-style gradient
+  // Dark mode: Deep purple to dark cyan
+  // Light mode: Vibrant purple to bright cyan (lighter pastel variants to keep text readable)
+  const bgClass = isDark 
+    ? "bg-gradient-to-b from-[#4b149b] via-[#2d4cb6] to-[#0d79b6]" 
+    : "bg-gradient-to-b from-[#8a3ffc] via-[#4589ff] to-[#08bdba] opacity-20"; // Opacity lowered in light mode so dark text pops
+
   return (
-    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? 'bg-[#020b2d]' : 'bg-[#eef2ff]'}`}>
+    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? "bg-[#11052C]" : "bg-white"}`}>
       
-      {/* Abstract Data Flow Pattern Background */}
+      {/* Main Base Gradient layer that scales up slightly to allow panning */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className={`absolute inset-[-10%] w-[120%] h-[120%] ${bgClass} transition-opacity duration-700`}
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='${isDark ? '%23ffffff' : '%23001f3f'}' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          transform: `translate(${mousePosition.x * 10}px, ${mousePosition.y * 10}px)`
+          transform: `translate(${smoothedMouse.x * -30}px, ${smoothedMouse.y * -30}px)`,
+          transition: 'transform 0.1s ease-out'
         }}
       ></div>
 
+      {/* Abstract interactive blobs mapping to the Canva vibe */}
       <div 
         className="absolute inset-0 transition-transform duration-100 ease-out"
         style={{
-          transform: `translate(${mousePosition.x * 40}px, ${mousePosition.y * 40}px)`
+          transform: `translate(${smoothedMouse.x * 60}px, ${smoothedMouse.y * 60}px)`
         }}
       >
-        {/* Top right intense indigo glow */}
-        <div className={`absolute top-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-3xl mix-blend-screen transition-colors duration-700 ${
+        {/* Top left bright purple glow */}
+        <div className={`absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] rounded-full blur-[100px] mix-blend-screen transition-all duration-700 ${
           isDark 
-            ? 'bg-[radial-gradient(circle,rgba(49,46,129,0.8)_0%,rgba(0,0,0,0)_60%)]' 
-            : 'bg-[radial-gradient(circle,rgba(165,180,252,0.8)_0%,rgba(255,255,255,0)_60%)]'
+            ? 'bg-[radial-gradient(circle,rgba(168,85,247,0.4)_0%,rgba(0,0,0,0)_70%)]' 
+            : 'bg-[radial-gradient(circle,rgba(216,180,254,0.6)_0%,rgba(255,255,255,0)_70%)]'
         }`}></div>
         
-        {/* Bottom left deep blue glow */}
-        <div className={`absolute bottom-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full blur-3xl mix-blend-screen transition-colors duration-700 ${
+        {/* Bottom right cyan/teal glow */}
+        <div className={`absolute bottom-[-20%] right-[-10%] w-[70vw] h-[70vw] rounded-full blur-[100px] mix-blend-screen transition-all duration-700 ${
           isDark 
-            ? 'bg-[radial-gradient(circle,rgba(30,58,138,0.7)_0%,rgba(0,0,0,0)_60%)]' 
-            : 'bg-[radial-gradient(circle,rgba(147,197,253,0.7)_0%,rgba(255,255,255,0)_60%)]'
+            ? 'bg-[radial-gradient(circle,rgba(6,182,212,0.4)_0%,rgba(0,0,0,0)_70%)]' 
+            : 'bg-[radial-gradient(circle,rgba(103,232,249,0.5)_0%,rgba(255,255,255,0)_70%)]'
         }`}></div>
-        
-        {/* Center highlight cyan */}
-        <div 
-          className={`absolute top-[30%] left-[20%] w-[50vw] h-[50vw] rounded-full blur-3xl mix-blend-screen transition-colors duration-700 ${
-            isDark 
-              ? 'bg-[radial-gradient(circle,rgba(8,145,178,0.25)_0%,rgba(0,0,0,0)_60%)]' 
-              : 'bg-[radial-gradient(circle,rgba(125,211,252,0.6)_0%,rgba(255,255,255,0)_60%)]'
-          }`}
-          style={{
-            transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`
-          }}
-        ></div>
+      </div>
+      
+      {/* Slower floating accent layer */}
+      <div 
+        className="absolute inset-0 transition-transform duration-100 ease-out"
+        style={{
+          transform: `translate(${smoothedMouse.x * -20}px, ${smoothedMouse.y * -20}px)`
+        }}
+      >
+         {/* Center floating accent */}
+         <div className={`absolute top-[40%] left-[30%] w-[50vw] h-[50vw] rounded-full blur-[100px] mix-blend-screen transition-all duration-700 ${
+          isDark 
+            ? 'bg-[radial-gradient(circle,rgba(59,130,246,0.3)_0%,rgba(0,0,0,0)_60%)]' 
+            : 'bg-[radial-gradient(circle,rgba(147,197,253,0.4)_0%,rgba(255,255,255,0)_60%)]'
+        }`}></div>
       </div>
     </div>
   );

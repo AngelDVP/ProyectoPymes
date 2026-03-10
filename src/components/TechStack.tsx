@@ -24,7 +24,7 @@ export function TechStack() {
             return (
               <div 
                 key={i} 
-                className="flex items-center gap-3 px-6 py-4 bg-white dark:bg-[#1a1a1a] rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-700 transition-all cursor-default"
+                className="flex items-center gap-3 px-6 py-4 bg-white/50 dark:bg-[#111111]/40 backdrop-blur-md rounded-xl border border-gray-200 dark:border-white/10 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-gray-500 transition-all cursor-default"
               >
                 <Icon className={`w-6 h-6 ${tech.color}`} />
                 <span className="font-semibold text-gray-900 dark:text-white">{tech.name}</span>

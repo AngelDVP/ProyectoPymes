@@ -42,7 +42,7 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="mt-8 text-center text-sm text-gray-800 dark:text-gray-300">
+      <div className="mt-8 text-center text-sm text-gray-900 dark:text-white font-medium">
         &copy; {new Date().getFullYear()} Creado con Next.js y Tailwind CSS. Todos los derechos reservados.
       </div>
     </footer>
