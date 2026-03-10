@@ -3,7 +3,7 @@ import { Linkedin, Mail, Github } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800 py-12 px-4 mt-auto">
+    <footer className="bg-transparent py-12 px-4 mt-auto border-t border-gray-300 dark:border-white/10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
           <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-400">
@@ -42,7 +42,7 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-500">
+      <div className="mt-8 text-center text-sm text-gray-800 dark:text-gray-300">
         &copy; {new Date().getFullYear()} Creado con Next.js y Tailwind CSS. Todos los derechos reservados.
       </div>
     </footer>

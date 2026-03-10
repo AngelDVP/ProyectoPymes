@@ -5,9 +5,9 @@ export function Hero() {
   return (
     <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-background">
-        <div className="absolute w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
-        <div className="absolute w-[400px] h-[400px] bg-green-500/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse animation-delay-2000"></div>
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-transparent">
+        <div className="absolute w-[500px] h-[500px] bg-indigo-500/10 dark:bg-indigo-400/10 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
+        <div className="absolute w-[400px] h-[400px] bg-sky-500/10 dark:bg-sky-400/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse animation-delay-2000"></div>
       </div>
 
       <div className="absolute top-4 right-4 sm:top-8 sm:right-8">

@@ -12,7 +12,7 @@ export function TechStack() {
   ];
 
   return (
-    <section className="py-24 px-4 bg-gray-50 dark:bg-[#0f0f0f]">
+    <section className="py-24 px-4 bg-transparent">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-12">
           Stack Tecnológico
