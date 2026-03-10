@@ -11,11 +11,11 @@ export function Hero() {
         <div className="absolute w-[400px] h-[400px] bg-sky-500/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse"></div>
       </div>
 
-      {/* Two-column grid */}
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+      {/* Two-column grid — text 40%, phone 60% on desktop */}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 items-center">
 
-        {/* LEFT — Text (60%) */}
-        <div className="lg:col-span-3 flex flex-col items-start text-left space-y-8">
+        {/* LEFT — Text (40%) */}
+        <div className="lg:col-span-2 flex flex-col items-start text-left space-y-8">
 
           {/* Badge */}
           <div className="inline-flex items-center rounded-full border border-blue-600/40 bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-400">
@@ -58,9 +58,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* RIGHT — Isometric Phone Mockup (40%) */}
-        <div className="lg:col-span-2 flex items-center justify-center">
-          <div className="relative w-full max-w-sm">
+        {/* RIGHT — Phone Mockup (60%) */}
+        <div className="lg:col-span-3 flex items-center justify-center lg:justify-end">
+          <div className="relative w-full max-w-[260px] sm:max-w-xs lg:max-w-sm mx-auto lg:mx-0 px-2 lg:px-0">
             {/* Glow behind phone */}
             <div className="absolute inset-0 bg-indigo-500/20 blur-[60px] rounded-full scale-75"></div>
 
