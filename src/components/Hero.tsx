@@ -1,0 +1,52 @@
+import React from "react";
+import { ThemeToggle } from "./ThemeToggle";
+
+export function Hero() {
+  return (
+    <section className="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 bg-background">
+        <div className="absolute w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl -top-20 -left-20 animate-pulse"></div>
+        <div className="absolute w-[400px] h-[400px] bg-green-500/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="absolute top-4 right-4 sm:top-8 sm:right-8">
+        <ThemeToggle />
+      </div>
+
+      <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
+        {/* Badge */}
+        <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400">
+          <span className="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2 animate-ping"></span>
+          Senior BI Analyst & Low-Code Developer
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          Transformo datos en <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400 dark:from-indigo-500 dark:to-cyan-400">decisiones</span> y procesos en <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 dark:from-green-400 dark:to-emerald-300">software</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto font-light">
+          Especializado en <strong className="font-semibold text-gray-900 dark:text-white">Power Platform</strong>, <strong className="font-semibold text-gray-900 dark:text-white">SQL</strong>, <strong className="font-semibold text-gray-900 dark:text-white">Python</strong> y <strong className="font-semibold text-gray-900 dark:text-white">QGIS</strong> para potenciar PyMEs.
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <a
+            href="#proyectos"
+            className="px-8 py-3 rounded-full bg-indigo-500 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white font-medium transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-1"
+          >
+            Ver Proyectos
+          </a>
+          <a
+            href="#contacto"
+            className="px-8 py-3 rounded-full bg-white/50 dark:bg-transparent border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-gray-900 dark:text-white font-medium transition-all hover:bg-white dark:hover:bg-gray-800"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
