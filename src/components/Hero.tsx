@@ -9,7 +9,7 @@ export function Hero() {
         <div className="absolute w-[400px] h-[400px] bg-sky-500/10 dark:bg-sky-400/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse animation-delay-2000"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-8 animate-fade-in-up px-4">
+      <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up px-4">
         {/* Badge */}
         <div className="inline-flex items-center rounded-full border border-blue-600/40 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-700 dark:text-blue-400">
           <span className="flex h-2 w-2 rounded-full bg-blue-700 dark:bg-blue-400 mr-2 animate-ping"></span>
@@ -17,7 +17,7 @@ export function Hero() {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tight leading-none text-balance text-slate-950 dark:text-white">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-none text-balance mb-10 text-slate-950 dark:text-white">
           Datos que{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-indigo-400 dark:to-cyan-400">deciden</span>
           .{" "}Procesos que{" "}
