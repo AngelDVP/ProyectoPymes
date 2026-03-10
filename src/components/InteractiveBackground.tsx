@@ -48,14 +48,14 @@ export function InteractiveBackground() {
 
   const isDark = resolvedTheme === "dark";
 
-  // Dark: navy deep #0D1117 base. Light: clean white
-  // Gradient overlay is more transparent in light mode so dark text remains legible
+  // Dark: slate-950 deep navy base with subtle mesh gradient
+  // Light: barely tinted lavender/white — dark text must pop
   const bgClass = isDark 
-    ? "bg-gradient-to-b from-[#221C35] via-[#1a2744] to-[#0D1117]" 
-    : "bg-gradient-to-b from-[#ede9fe] via-[#e0e7ff] to-[#f0f9ff] opacity-70";
+    ? "bg-gradient-to-br from-[#0f0c29] via-[#0d1b3e] to-[#020617]" 
+    : "bg-gradient-to-b from-[#f5f3ff] via-[#eef2ff] to-white opacity-80";
 
   return (
-    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? "bg-[#0D1117]" : "bg-white"}`}>
+    <div className={`fixed inset-0 overflow-hidden pointer-events-none -z-20 transition-colors duration-700 ${isDark ? "bg-[#020617]" : "bg-white"}`}>
       
       {/* Main Base Gradient layer that scales up slightly to allow panning */}
       <div 

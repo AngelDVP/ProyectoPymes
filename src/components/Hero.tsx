@@ -16,19 +16,22 @@ export function Hero() {
 
       <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
         {/* Badge */}
-        <div className="inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400">
-          <span className="flex h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2 animate-ping"></span>
-          Senior BI Analyst & Low-Code Developer
+        <div className="inline-flex items-center rounded-full border border-blue-600/40 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-700 dark:text-blue-400">
+          <span className="flex h-2 w-2 rounded-full bg-blue-700 dark:bg-blue-400 mr-2 animate-ping"></span>
+          Senior BI Analyst &amp; Low-Code Developer
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-          Transformo datos en <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400 dark:from-indigo-500 dark:to-cyan-400">decisiones</span> y procesos en <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 dark:from-green-400 dark:to-emerald-300">software</span>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-950 dark:text-white">
+          Transformo datos en{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-indigo-400 dark:to-cyan-400">decisiones</span>{" "}
+          y procesos en{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600 dark:from-green-400 dark:to-emerald-300">software</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto font-light">
-          Especializado en <strong className="font-semibold text-gray-900 dark:text-white">Power Platform</strong>, <strong className="font-semibold text-gray-900 dark:text-white">SQL</strong>, <strong className="font-semibold text-gray-900 dark:text-white">Python</strong> y <strong className="font-semibold text-gray-900 dark:text-white">QGIS</strong> para potenciar PyMEs.
+        <p className="text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-2xl mx-auto font-light">
+          Especializado en <strong className="font-semibold text-slate-900 dark:text-white">Power Platform</strong>, <strong className="font-semibold text-slate-900 dark:text-white">SQL</strong>, <strong className="font-semibold text-slate-900 dark:text-white">Python</strong> y <strong className="font-semibold text-slate-900 dark:text-white">QGIS</strong> para potenciar PyMEs.
         </p>
 
         {/* CTA Buttons */}
@@ -41,7 +44,7 @@ export function Hero() {
           </a>
           <a
             href="#contacto"
-            className="px-8 py-3 rounded-full bg-white/50 dark:bg-transparent border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 text-gray-900 dark:text-white font-medium transition-all hover:bg-white dark:hover:bg-gray-800"
+            className="px-8 py-3 rounded-full bg-white/70 dark:bg-transparent border border-slate-400 dark:border-gray-700 hover:border-slate-600 dark:hover:border-gray-500 text-slate-900 dark:text-white font-medium transition-all hover:bg-white dark:hover:bg-gray-800"
           >
             Contactar
           </a>
