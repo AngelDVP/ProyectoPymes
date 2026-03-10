@@ -27,7 +27,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl text-slate-700 dark:text-gray-300 max-w-2xl mx-auto font-light">
-          Especializado en <strong className="font-semibold text-slate-900 dark:text-white">Power Platform</strong>, <strong className="font-semibold text-slate-900 dark:text-white">SQL</strong>, <strong className="font-semibold text-slate-900 dark:text-white">Python</strong> y <strong className="font-semibold text-slate-900 dark:text-white">QGIS</strong> para potenciar PyMEs.
+          Soluciones ágiles y automatizadas para tu negocio.
         </p>
 
         {/* CTA Buttons */}

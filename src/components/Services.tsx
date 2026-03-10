@@ -3,22 +3,22 @@ import { BarChart3, Workflow, Store } from "lucide-react";
 
 const services = [
   {
-    title: "Business Intelligence & Analytics",
-    description: "Creación de Dashboards interactivos, consultas SQL optimizadas y modelos de datos para facilitar la Toma de Decisiones.",
+    title: "Reportes e Inteligencia de Negocios",
+    description: "Dashboards interactivos y reportes rápidos que convierten tu información en decisiones claras. Organizamos tu información y la presentamos de forma visual y sencilla.",
     icon: BarChart3,
     color: "text-blue-500",
     bg: "bg-blue-500/10",
   },
   {
     title: "Automatización de Procesos",
-    description: "Desarrollo de flujos con Power Automate y aplicaciones con Power Apps para mejorar la Eficiencia operativa y reducir tareas manuales.",
+    description: "Con Power Automate y Power Apps eliminamos tareas manuales y repetitivas. Tus flujos de trabajo se vuelven automáticos, rápidos y sin errores.",
     icon: Workflow,
     color: "text-green-500",
     bg: "bg-green-500/10",
   },
   {
     title: "Soluciones 3B para PyMEs",
-    description: "Sistemas de inventario y ventas Bueno, Bonito y Barato. Accesibles, a medida y fáciles de implementar.",
+    description: "Sistemas de inventario, ventas y gestión almacenados en una base de datos segura en la nube de Microsoft. Bueno, Bonito y Barato — listas inteligentes a tu medida.",
     icon: Store,
     color: "text-purple-500",
     bg: "bg-purple-500/10",
